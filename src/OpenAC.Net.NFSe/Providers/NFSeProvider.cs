@@ -141,5 +141,7 @@ public enum NFSeProvider : sbyte
 
     Agili = 49,
 
-    Megasoft = 50
+    Megasoft = 50,
+
+    ISSJoinville = 51
 }

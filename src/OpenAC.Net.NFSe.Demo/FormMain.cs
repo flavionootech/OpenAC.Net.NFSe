@@ -537,6 +537,7 @@ public partial class FormMain : Form, IOpenLog
         var nfSe = openNFSe.NotasServico.AddNew();
 
         nfSe.IdentificacaoRps.Numero = numeroRps;
+        nfSe.IdentificacaoRps.Serie = "1";
 
         // Setar a serie de acordo com o provedor.
         switch (municipio.Provedor)
@@ -590,6 +591,11 @@ public partial class FormMain : Form, IOpenLog
             case NFSeProvider.Agili:
                 {
                     itemListaServico = "14.06";
+                    break;
+                }
+            case NFSeProvider.Coplan:
+                {
+                    itemListaServico = "1401";
                     break;
                 }
             default:
@@ -696,6 +702,7 @@ public partial class FormMain : Form, IOpenLog
     {
         return municipio.Provedor switch
         {
+            NFSeProvider.Coplan => "4520001",
             NFSeProvider.SiapNet => "5211701",
             NFSeProvider.Sintese => "5211701",
             NFSeProvider.ABase => "5211701",
