@@ -141,7 +141,7 @@ namespace OpenAC.Net.NFSe.Providers.ISSJoinville
                 }
             }
 
-            MensagemErro(retornoWebservice, xmlRet, "ConsultarLoteRpsResposta");
+            MensagemErro(retornoWebservice, xmlRet.ElementAnyNs("ConsultarLoteRpsEnvioResponse"), "ConsultarLoteRpsResposta");
             if (retornoWebservice.Erros.Any()) return;
 
             retornoWebservice.Sucesso = true;
@@ -164,11 +164,7 @@ namespace OpenAC.Net.NFSe.Providers.ISSJoinville
                 var numeroNFSe = nfse.ElementAnyNs("Numero")?.GetValue<string>() ?? string.Empty;
                 var chaveNFSe = nfse.ElementAnyNs("CodigoVerificacao")?.GetValue<string>() ?? string.Empty;
                 var dataNFSe = nfse.ElementAnyNs("DataEmissao")?.GetValue<DateTime>() ?? DateTime.Now;
-                var numeroRps = nfse.ElementAnyNs("DeclaracaoPrestacaoServico")?
-                    .ElementAnyNs("InfDeclaracaoPrestacaoServico")?
-                    .ElementAnyNs("Rps")?
-                    .ElementAnyNs("IdentificacaoRps")?
-                    .ElementAnyNs("Numero").GetValue<string>() ?? string.Empty;
+                var numeroRps = nfse.ElementAnyNs("NumeroRps")?.GetValue<string>() ?? string.Empty;
 
                 GravarNFSeEmDisco(compNfse.AsString(true), $"NFSe-{numeroNFSe}-{chaveNFSe}-.xml", dataNFSe);
 
@@ -179,11 +175,14 @@ namespace OpenAC.Net.NFSe.Providers.ISSJoinville
                 }
                 else
                 {
-                    nota.IdentificacaoNFSe.Numero = numeroNFSe;
-                    nota.IdentificacaoNFSe.Chave = chaveNFSe;
-                    nota.IdentificacaoNFSe.DataEmissao = dataNFSe;
                     nota.XmlOriginal = compNfse.ToString();
                 }
+
+                nota.IdentificacaoRps.Numero = numeroRps;
+                
+                nota.IdentificacaoNFSe.Numero = numeroNFSe;
+                nota.IdentificacaoNFSe.Chave = chaveNFSe;
+                nota.IdentificacaoNFSe.DataEmissao = dataNFSe;
 
                 nota.Protocolo = retornoWebservice.Protocolo;
                 notasFiscais.Add(nota);

@@ -44,6 +44,7 @@ using OpenAC.Net.NFSe.Providers.ISSRecife;
 using OpenAC.Net.NFSe.Providers.ISSSJP;
 using OpenAC.Net.NFSe.Providers.Megasoft;
 using OpenAC.Net.NFSe.Providers.Sigep;
+using OpenAC.Net.NFSe.Providers.SigISS;
 
 namespace OpenAC.Net.NFSe.Providers;
 
@@ -92,7 +93,7 @@ public static class ProviderManager
             {NFSeProvider.IISPortoVelho, new Dictionary<VersaoNFSe, Type> {{VersaoNFSe.ve203, typeof(ProviderISSPortoVelho)}}},
             {NFSeProvider.RLZ, new Dictionary<VersaoNFSe, Type> {{VersaoNFSe.ve203, typeof(ProviderRLZ)}}},
             {NFSeProvider.SiapNet, new Dictionary<VersaoNFSe, Type> {{VersaoNFSe.ve201, typeof(ProviderSiapNet)}}},
-            {NFSeProvider.SigISS, new Dictionary<VersaoNFSe, Type> {{VersaoNFSe.ve100, typeof(ProviderSigISS100)}, {VersaoNFSe.ve103, typeof(ProviderSigISS103)}}},
+            {NFSeProvider.SigISS, new Dictionary<VersaoNFSe, Type> {{VersaoNFSe.ve100, typeof(ProviderSigISS100)}, {VersaoNFSe.ve103, typeof(ProviderSigISS103)}, {VersaoNFSe.ve204, typeof(ProviderSigISS204)}}},
             {NFSeProvider.SigISSWeb, new Dictionary<VersaoNFSe, Type> {{VersaoNFSe.ve100, typeof(ProviderSigISSWeb)}}},
             {NFSeProvider.SimplISS, new Dictionary<VersaoNFSe, Type> {{VersaoNFSe.ve100, typeof(ProviderSimplISS100)}, {VersaoNFSe.ve203, typeof(ProviderSimplISS203)}}},
             {NFSeProvider.Sintese, new Dictionary<VersaoNFSe, Type> {{VersaoNFSe.ve204, typeof(ProviderSintese204)}}},

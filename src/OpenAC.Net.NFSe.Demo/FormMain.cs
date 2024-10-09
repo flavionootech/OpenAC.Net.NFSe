@@ -560,7 +560,7 @@ public partial class FormMain : Form, IOpenLog
         nfSe.IdentificacaoRps.DataEmissao = DateTime.Now;
         nfSe.Competencia = DateTime.Now;
         nfSe.Situacao = SituacaoNFSeRps.Normal;
-        nfSe.OptanteSimplesNacional = NFSeSimNao.Sim;
+        nfSe.OptanteSimplesNacional = NFSeSimNao.Nao;
         nfSe.OptanteMEISimei = NFSeSimNao.Nao;
 
         // Setar a natureza de operação de acordo com o provedor.
@@ -575,7 +575,7 @@ public partial class FormMain : Form, IOpenLog
                 break;
         }
 
-        nfSe.RegimeEspecialTributacao = RegimeEspecialTributacao.SimplesNacional;
+        nfSe.RegimeEspecialTributacao = RegimeEspecialTributacao.MicroEmpresarioEmpresaPP;
         nfSe.IncentivadorCultural = NFSeSimNao.Nao;
 
         var itemListaServico = string.Empty;
@@ -596,6 +596,11 @@ public partial class FormMain : Form, IOpenLog
             case NFSeProvider.Coplan:
                 {
                     itemListaServico = "1401";
+                    break;
+                }
+            case NFSeProvider.Fiorilli:
+                {
+                    itemListaServico = "14.02";
                     break;
                 }
             default:
@@ -644,7 +649,7 @@ public partial class FormMain : Form, IOpenLog
         nfSe.Servico.Discriminacao = "MANUTENCAO TÉCNICA / VOCÊ PAGOU APROXIMADAMENTE R$ 41,15 DE TRIBUTOS FEDERAIS, R$ 8,26 DE TRIBUTOS MUNICIPAIS, R$ 256,57 PELOS PRODUTOS/SERVICOS, FONTE: IBPT.";
         nfSe.Servico.CodigoMunicipio = municipio.Provedor == NFSeProvider.ISSDSF ? municipio.CodigoSiafi : municipio.Codigo;
         nfSe.Servico.Municipio = municipio.Nome;
-        if (municipio.Provedor.IsIn(NFSeProvider.SiapNet, NFSeProvider.Agili))
+        if (municipio.Provedor.IsIn(NFSeProvider.SiapNet, NFSeProvider.Agili, NFSeProvider.SmarAPD))
         {
             nfSe.Servico.ResponsavelRetencao = ResponsavelRetencao.Prestador;
             nfSe.Servico.MunicipioIncidencia = nfSe.Servico.CodigoMunicipio;
@@ -661,7 +666,7 @@ public partial class FormMain : Form, IOpenLog
         nfSe.Servico.Valores.ValorIss = municipio.Provedor == NFSeProvider.SiapNet ? 2 : 0;
         nfSe.Servico.Valores.ValorOutrasRetencoes = 0;
         nfSe.Servico.Valores.BaseCalculo = 1;
-        nfSe.Servico.Valores.Aliquota = 2;
+        nfSe.Servico.Valores.Aliquota = 5;
         nfSe.Servico.Valores.ValorLiquidoNfse = 1;
         nfSe.Servico.Valores.ValorIssRetido = 0;
         nfSe.Servico.Valores.DescontoCondicionado = 0;
@@ -711,7 +716,9 @@ public partial class FormMain : Form, IOpenLog
             NFSeProvider.Ginfes => "5211701",
             NFSeProvider.Tiplan => "5211701",
             NFSeProvider.Agili => "8610101",
-            _ => "861010101"
+            NFSeProvider.SmarAPD => "1010101",
+            NFSeProvider.Fiorilli => "4753900",
+            _ => "1010101"
         };
     }
 
@@ -1048,5 +1055,10 @@ public partial class FormMain : Form, IOpenLog
          }*/
 
         var notaServico = provider.LoadXml(System.IO.File.ReadAllText("C:\\tmp\\retorno.xml"));
+    }
+
+    private void FormMain_Load(object sender, EventArgs e)
+    {
+
     }
 }

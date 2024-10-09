@@ -32,6 +32,7 @@ namespace OpenAC.Net.NFSe.Demo
             tabPage1 = new System.Windows.Forms.TabPage();
             tabControl2 = new System.Windows.Forms.TabControl();
             tabPage14 = new System.Windows.Forms.TabPage();
+            btnLoadXML = new System.Windows.Forms.Button();
             btnGerarLoteRps = new System.Windows.Forms.Button();
             btnSubstituirNFSe = new System.Windows.Forms.Button();
             btnLinkNFSe = new System.Windows.Forms.Button();
@@ -155,7 +156,6 @@ namespace OpenAC.Net.NFSe.Demo
             btnCarregar = new System.Windows.Forms.Button();
             lblStatus = new System.Windows.Forms.ToolStripStatusLabel();
             statusStrip1 = new System.Windows.Forms.StatusStrip();
-            btnLoadXML = new System.Windows.Forms.Button();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
             tabControl2.SuspendLayout();
@@ -243,6 +243,17 @@ namespace OpenAC.Net.NFSe.Demo
             tabPage14.TabIndex = 0;
             tabPage14.Text = "Envios";
             tabPage14.UseVisualStyleBackColor = true;
+            // 
+            // btnLoadXML
+            // 
+            btnLoadXML.Location = new System.Drawing.Point(434, 74);
+            btnLoadXML.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            btnLoadXML.Name = "btnLoadXML";
+            btnLoadXML.Size = new System.Drawing.Size(207, 26);
+            btnLoadXML.TabIndex = 32;
+            btnLoadXML.Text = "LoadXml";
+            btnLoadXML.UseVisualStyleBackColor = true;
+            btnLoadXML.Click += btnLoadXML_Click;
             // 
             // btnGerarLoteRps
             // 
@@ -1577,17 +1588,6 @@ namespace OpenAC.Net.NFSe.Demo
             statusStrip1.TabIndex = 1;
             statusStrip1.Text = "statusStrip1";
             // 
-            // btnLoadXML
-            // 
-            btnLoadXML.Location = new System.Drawing.Point(434, 74);
-            btnLoadXML.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            btnLoadXML.Name = "btnLoadXML";
-            btnLoadXML.Size = new System.Drawing.Size(207, 26);
-            btnLoadXML.TabIndex = 32;
-            btnLoadXML.Text = "LoadXml";
-            btnLoadXML.UseVisualStyleBackColor = true;
-            btnLoadXML.Click += btnLoadXML_Click;
-            // 
             // FormMain
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -1602,6 +1602,7 @@ namespace OpenAC.Net.NFSe.Demo
             Name = "FormMain";
             StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             Text = "OpenAC.Net.NFSe Demo";
+            Load += FormMain_Load;
             tabControl1.ResumeLayout(false);
             tabPage1.ResumeLayout(false);
             tabControl2.ResumeLayout(false);

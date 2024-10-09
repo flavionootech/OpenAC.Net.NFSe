@@ -445,6 +445,7 @@ public abstract class ProviderABRASF200 : ProviderBase
         //Algumas prefeituras não permitem controle de série de RPS
         switch (Municipio.Codigo)
         {
+            case 3534708: //Ourinhos/SP
             case 3551702: //Sertãozinho/SP
                 serie = "00000";
                 break;
@@ -1545,6 +1546,23 @@ public abstract class ProviderABRASF200 : ProviderBase
         mensagens = mensagens?.ElementAnyNs("ListaMensagemRetornoLote");
         if (mensagens == null) return;
         {
+            foreach (var mensagem in mensagens.ElementsAnyNs("MensagemRetornoLote"))
+            {
+                var evento = new Evento
+                {
+                    Codigo = mensagem?.ElementAnyNs("Codigo")?.GetValue<string>() ?? string.Empty,
+                    Descricao = mensagem?.ElementAnyNs("Mensagem")?.GetValue<string>() ?? string.Empty,
+                    IdentificacaoRps = new IdeRps()
+                    {
+                        Numero = mensagem?.ElementAnyNs("IdentificacaoRps")?.ElementAnyNs("Numero")?.GetValue<string>() ?? string.Empty,
+                        Serie = mensagem?.ElementAnyNs("IdentificacaoRps")?.ElementAnyNs("Serie")?.GetValue<string>() ?? string.Empty,
+                        Tipo = mensagem?.ElementAnyNs("IdentificacaoRps")?.ElementAnyNs("Tipo")?.GetValue<TipoRps>() ?? TipoRps.RPS,
+                    }
+                };
+
+                retornoWs.Erros.Add(evento);
+            }
+
             foreach (var mensagem in mensagens.ElementsAnyNs("MensagemRetorno"))
             {
                 var evento = new Evento
