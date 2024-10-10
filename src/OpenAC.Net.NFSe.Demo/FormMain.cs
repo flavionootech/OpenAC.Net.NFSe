@@ -1,12 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
-using System.Windows.Forms;
-using System.Xml.Linq;
-using NLog;
+﻿using NLog;
 using NLog.Config;
 using NLog.Targets;
 using NLog.Windows.Forms;
@@ -17,6 +9,12 @@ using OpenAC.Net.DFe.Core.Extensions;
 using OpenAC.Net.NFSe.DANFSe.FastReport.OpenSource;
 using OpenAC.Net.NFSe.Nota;
 using OpenAC.Net.NFSe.Providers;
+using System;
+using System.IO;
+using System.Linq;
+using System.Security.Cryptography.X509Certificates;
+using System.Text;
+using System.Windows.Forms;
 
 namespace OpenAC.Net.NFSe.Demo;
 
@@ -637,6 +635,11 @@ public partial class FormMain : Form, IOpenLog
                     codigoTributacaoMunicipio = "1.07";
                     break;
                 }
+            case NFSeProvider.Directa:
+                {
+                    codigoTributacaoMunicipio = "";
+                    break;
+                }
             default:
                 {
                     codigoTributacaoMunicipio = "01.07.00 / 00010700";
@@ -663,7 +666,7 @@ public partial class FormMain : Form, IOpenLog
         nfSe.Servico.Valores.ValorIr = 0;
         nfSe.Servico.Valores.ValorCsll = 0;
         nfSe.Servico.Valores.IssRetido = SituacaoTributaria.Normal;
-        nfSe.Servico.Valores.ValorIss = municipio.Provedor == NFSeProvider.SiapNet ? 2 : 0;
+        nfSe.Servico.Valores.ValorIss = municipio.Provedor == NFSeProvider.Directa ? 0.05m : 0;
         nfSe.Servico.Valores.ValorOutrasRetencoes = 0;
         nfSe.Servico.Valores.BaseCalculo = 1;
         nfSe.Servico.Valores.Aliquota = 5;
@@ -718,6 +721,7 @@ public partial class FormMain : Form, IOpenLog
             NFSeProvider.Agili => "8610101",
             NFSeProvider.SmarAPD => "1010101",
             NFSeProvider.Fiorilli => "4753900",
+            NFSeProvider.Directa => "6209100",
             _ => "1010101"
         };
     }

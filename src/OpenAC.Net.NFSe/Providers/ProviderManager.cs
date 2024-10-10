@@ -39,6 +39,7 @@ using OpenAC.Net.Core.Extensions;
 using OpenAC.Net.DFe.Core.Common;
 using OpenAC.Net.NFSe.Configuracao;
 using OpenAC.Net.NFSe.Providers.Agili;
+using OpenAC.Net.NFSe.Providers.Directa;
 using OpenAC.Net.NFSe.Providers.ISSJoinville;
 using OpenAC.Net.NFSe.Providers.ISSRecife;
 using OpenAC.Net.NFSe.Providers.ISSSJP;
@@ -108,6 +109,7 @@ public static class ProviderManager
             {NFSeProvider.ISSRecife, new Dictionary<VersaoNFSe, Type> {{VersaoNFSe.ve100, typeof(ProviderISSRecife)}}},
             {NFSeProvider.Agili, new Dictionary<VersaoNFSe, Type> {{VersaoNFSe.ve100, typeof(ProviderAgili)}}},
             {NFSeProvider.Megasoft, new Dictionary<VersaoNFSe, Type> {{VersaoNFSe.ve100, typeof(ProviderMegasoft)}}},
+            {NFSeProvider.Directa, new Dictionary<VersaoNFSe, Type> {{VersaoNFSe.ve100, typeof(ProviderDirecta)}}},
         };
 
         Load();
