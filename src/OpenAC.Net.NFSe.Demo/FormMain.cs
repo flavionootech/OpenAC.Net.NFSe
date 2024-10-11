@@ -375,7 +375,7 @@ public partial class FormMain : Form, IOpenLog
 
     private void txtIM_TextChanged(object sender, EventArgs e)
     {
-        openNFSe.Configuracoes.PrestadorPadrao.InscricaoMunicipal = txtIM.Text.OnlyNumbers();
+        openNFSe.Configuracoes.PrestadorPadrao.InscricaoMunicipal = txtIM.Text;
     }
 
     private void txtRazaoSocial_TextChanged(object sender, EventArgs e)
@@ -630,6 +630,7 @@ public partial class FormMain : Form, IOpenLog
                     codigoTributacaoMunicipio = "1";
                     break;
                 }
+            case NFSeProvider.ISSTaiobeiras:
             case NFSeProvider.Megasoft:
                 {
                     codigoTributacaoMunicipio = "1.07";
@@ -994,7 +995,7 @@ public partial class FormMain : Form, IOpenLog
     private void SaveConfig()
     {
         config.Set("PrestadorCPFCNPJ", txtCPFCNPJ.Text.OnlyNumbers());
-        config.Set("PrestadorIM", txtIM.Text.OnlyNumbers());
+        config.Set("PrestadorIM", txtIM.Text);
         config.Set("PrestadorRazaoSocial", txtRazaoSocial.Text);
         config.Set("PrestadorFantasia", txtFantasia.Text);
         config.Set("PrestadorFone", txtFone.Text);

@@ -1,10 +1,5 @@
 ﻿using OpenAC.Net.Core.Extensions;
-using OpenAC.Net.DFe.Core;
-using OpenAC.Net.NFSe.Nota;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Xml.Linq;
 
 namespace OpenAC.Net.NFSe.Providers.ISSJoinville
@@ -12,14 +7,10 @@ namespace OpenAC.Net.NFSe.Providers.ISSJoinville
     internal class ISSJoinvilleServiceClient(ProviderISSJoinville provider, TipoUrl tipoUrl) : NFSeSoapServiceClient(provider, tipoUrl, SoapVersion.Soap11), IServiceClient
     {
 
-        #region Constructors
-
-        #endregion Constructors
-
         #region Methods
 
         public string Enviar(string nfseCabecMsg, string nfseDadosMsg)
-        {            
+        {
             return Execute("https://nfemws.joinville.sc.gov.br/EnviarLoteRpsEnvio", nfseDadosMsg, "EnviarLoteRpsEnvioResponse");
         }
 
@@ -66,8 +57,6 @@ namespace OpenAC.Net.NFSe.Providers.ISSJoinville
         {
             return xmlDocument.ElementAnyNs(responseTag[0]).ToString();
         }
-
-        
 
         #endregion Methods
     }

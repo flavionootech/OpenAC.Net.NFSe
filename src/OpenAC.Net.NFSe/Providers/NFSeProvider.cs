@@ -145,5 +145,7 @@ public enum NFSeProvider : sbyte
 
     ISSJoinville = 51,
 
-    Directa = 52
+    Directa = 52,
+
+    ISSTaiobeiras = 53
 }
