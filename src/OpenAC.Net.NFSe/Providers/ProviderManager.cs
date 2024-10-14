@@ -47,6 +47,7 @@ using OpenAC.Net.NFSe.Providers.ISSTaiobeiras;
 using OpenAC.Net.NFSe.Providers.Megasoft;
 using OpenAC.Net.NFSe.Providers.Sigep;
 using OpenAC.Net.NFSe.Providers.SigISS;
+using OpenAC.Net.NFSe.Providers.Tinus;
 
 namespace OpenAC.Net.NFSe.Providers;
 
@@ -112,6 +113,7 @@ public static class ProviderManager
             {NFSeProvider.Megasoft, new Dictionary<VersaoNFSe, Type> {{VersaoNFSe.ve100, typeof(ProviderMegasoft)}}},
             {NFSeProvider.Directa, new Dictionary<VersaoNFSe, Type> {{VersaoNFSe.ve100, typeof(ProviderDirecta)}}},
             {NFSeProvider.ISSTaiobeiras, new Dictionary<VersaoNFSe, Type> {{VersaoNFSe.ve204, typeof(ProviderISSTaiobeiras)}}},
+            {NFSeProvider.Tinus, new Dictionary<VersaoNFSe, Type> {{VersaoNFSe.ve100, typeof(ProviderTinus)}}},
         };
 
         Load();

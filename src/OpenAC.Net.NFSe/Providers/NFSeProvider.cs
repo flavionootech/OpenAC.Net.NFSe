@@ -147,5 +147,7 @@ public enum NFSeProvider : sbyte
 
     Directa = 52,
 
-    ISSTaiobeiras = 53
+    ISSTaiobeiras = 53,
+
+    Tinus = 54
 }
