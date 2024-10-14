@@ -233,8 +233,8 @@ namespace OpenAC.Net.NFSe.Providers.Tinus
                 return;
             }
 
-            retornoWebservice.Sucesso = xmlResult?.ElementAnyNs("Cancelamento")?.ElementAnyNs("Confirmacao")?.ElementAnyNs("Datahora") != null;
-            retornoWebservice.Data = xmlResult?.ElementAnyNs("Cancelamento")?.ElementAnyNs("Confirmacao")?.ElementAnyNs("Datahora")?.GetValue<DateTime>() ?? DateTime.MinValue;
+            retornoWebservice.Sucesso = xmlResult?.ElementAnyNs("Cancelamento")?.ElementAnyNs("Confirmacao")?.ElementAnyNs("DataHoraCancelamento") != null;
+            retornoWebservice.Data = xmlResult?.ElementAnyNs("Cancelamento")?.ElementAnyNs("Confirmacao")?.ElementAnyNs("DataHoraCancelamento")?.GetValue<DateTime>() ?? DateTime.MinValue;
 
             // Se a nota fiscal cancelada existir na coleção de Notas Fiscais, atualiza seu status:
             var nota = notas.FirstOrDefault(x => x.IdentificacaoNFSe.Numero.Trim() == retornoWebservice.NumeroNFSe);
