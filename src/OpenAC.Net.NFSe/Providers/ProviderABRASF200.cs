@@ -362,11 +362,15 @@ public abstract class ProviderABRASF200 : ProviderBase
     protected virtual void LoadNFSeCancelada(NotaServico nota, XElement rootCanc)
     {
         nota.Situacao = SituacaoNFSeRps.Cancelado;
-        nota.Cancelamento.DataHora = rootCanc.ElementAnyNs("Confirmacao").ElementAnyNs("DataHora")?.GetValue<DateTime>() ?? DateTime.MinValue;
-        nota.Cancelamento.Signature = LoadSignature(rootCanc.ElementAnyNs("Signature"));
 
-        nota.Cancelamento.Pedido.CodigoCancelamento = rootCanc.ElementAnyNs("Confirmacao").ElementAnyNs("Pedido").ElementAnyNs("InfPedidoCancelamento")?.ElementAnyNs("CodigoCancelamento")?.GetValue<string>() ?? string.Empty;
-        nota.Cancelamento.Pedido.Signature = LoadSignature(rootCanc.ElementAnyNs("Confirmacao").ElementAnyNs("Pedido").ElementAnyNs("Signature"));
+        if (rootCanc.ElementAnyNs("Confirmacao") != null)
+        {
+            nota.Cancelamento.DataHora = rootCanc.ElementAnyNs("Confirmacao").ElementAnyNs("DataHora")?.GetValue<DateTime>() ?? DateTime.MinValue;
+            nota.Cancelamento.Pedido.CodigoCancelamento = rootCanc.ElementAnyNs("Confirmacao").ElementAnyNs("Pedido").ElementAnyNs("InfPedidoCancelamento")?.ElementAnyNs("CodigoCancelamento")?.GetValue<string>() ?? string.Empty;
+            nota.Cancelamento.Pedido.Signature = LoadSignature(rootCanc.ElementAnyNs("Confirmacao").ElementAnyNs("Pedido").ElementAnyNs("Signature"));
+        }
+
+        nota.Cancelamento.Signature = LoadSignature(rootCanc.ElementAnyNs("Signature"));
     }
 
     #endregion LoadXml

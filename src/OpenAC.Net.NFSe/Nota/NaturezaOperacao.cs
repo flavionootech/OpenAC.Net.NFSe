@@ -40,6 +40,56 @@ public static class NaturezaOperacao
 {
     #region InnerTypes
 
+    public sealed class NtPublica
+    {
+        internal NtPublica()
+        {
+            TributacaoNoMunicipio = 101;
+            TributacaoForaMunicipio = 102;
+            TributacaoNoMunicipioSimplesNacional = 107;
+            TributacaoForaMunicipioSimplesNacional = 108;
+            Isencao = 103;
+            Imune = 104;
+            ExigibilidadeSuspJud = 105;
+            ExigibilidadeSuspAdm = 106;
+        }
+        public int TributacaoNoMunicipio { get; }
+
+        /// <summary>
+        /// Obtém a Natureza de Operação 2 - Tributação fora do município.
+        /// </summary>
+        public int TributacaoForaMunicipio { get; }
+
+
+        public int TributacaoNoMunicipioSimplesNacional { get; }
+
+        /// <summary>
+        /// Obtém a Natureza de Operação 2 - Tributação fora do município.
+        /// </summary>
+        public int TributacaoForaMunicipioSimplesNacional { get; }
+
+        /// <summary>
+        /// Obtém a Natureza de Operação 3 - Isenção.
+        /// </summary>
+        public int Isencao { get; }
+
+        /// <summary>
+        /// Obtém a Natureza de Operação 4 - Imune.
+        /// </summary>
+        public int Imune { get; }
+
+        /// <summary>
+        /// Obtém a Natureza de Operação 5 - Exigibilidade suspensa por decisão judicial.
+        /// </summary>
+        public int ExigibilidadeSuspJud { get; }
+
+        /// <summary>
+        /// Obtém a Natureza de Operação 6 - Exigibilidade suspensa por procedimento administrativo.
+        /// </summary>
+        public int ExigibilidadeSuspAdm { get; }
+    }
+
+
     public sealed class NtABRASF
     {
         #region Constructors
@@ -266,10 +316,13 @@ public static class NaturezaOperacao
     private static NtDSF dsf;
     private static NtSigiss sigiss;
     private static NtThema thema;
+    private static NtPublica publica;
 
     #endregion Fields
 
     #region Properties
+
+    public static NtPublica Publica => publica ??= new NtPublica();
 
     /// <summary>
     /// Obtém as Natureza de Operação da ABRASAF v1.

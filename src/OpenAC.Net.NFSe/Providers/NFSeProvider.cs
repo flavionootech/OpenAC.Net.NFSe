@@ -143,7 +143,7 @@ public enum NFSeProvider : sbyte
 
     Megasoft = 50,
 
-    ISSJoinville = 51,
+    Publica = 51,
 
     Directa = 52,
 

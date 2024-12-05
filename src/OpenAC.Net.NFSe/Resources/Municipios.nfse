@@ -15411,48 +15411,48 @@
       <IdEntidade>0</IdEntidade>
       <Nome>Joinville</Nome>
       <UF>SC</UF>
-      <Provedor>ISSJoinville</Provedor>
+      <Provedor>Publica</Provedor>
       <Versao>2.04</Versao>
       <UrlHomologacao>
         <Item>
           <TipoUrl>Enviar</TipoUrl>
-          <Url>https://nfemwshomologacao.joinville.sc.gov.br/NotaFiscal/Servicos.asmx?wsdl</Url>
+          <Url>https://nfsehomologacao.joinville.sc.gov.br/nfse_integracao/Services?wsdl</Url>
         </Item>
         <Item>
           <TipoUrl>EnviarSincrono</TipoUrl>
-          <Url>https://nfemwshomologacao.joinville.sc.gov.br/NotaFiscal/Servicos.asmx?wsdl</Url>
+          <Url>https://nfsehomologacao.joinville.sc.gov.br/nfse_integracao/Services?wsdl</Url>
         </Item>
         <Item>
           <TipoUrl>CancelarNFSe</TipoUrl>
-          <Url>https://nfemwshomologacao.joinville.sc.gov.br/NotaFiscal/Servicos.asmx?wsdl</Url>
+          <Url>https://nfsehomologacao.joinville.sc.gov.br/nfse_integracao/Services?wsdl</Url>
         </Item>
         <Item>
           <TipoUrl>CancelarNFSeLote</TipoUrl>
-          <Url>https://nfemwshomologacao.joinville.sc.gov.br/NotaFiscal/Servicos.asmx?wsdl</Url>
+          <Url>https://nfsehomologacao.joinville.sc.gov.br/nfse_integracao/Services?wsdl</Url>
         </Item>
         <Item>
           <TipoUrl>ConsultarNFSe</TipoUrl>
-          <Url>https://nfemwshomologacao.joinville.sc.gov.br/NotaFiscal/Servicos.asmx?wsdl</Url>
+          <Url>https://nfsehomologacao.joinville.sc.gov.br/nfse_integracao/Services?wsdl</Url>
         </Item>
         <Item>
           <TipoUrl>ConsultarNFSeRps</TipoUrl>
-          <Url>https://nfemwshomologacao.joinville.sc.gov.br/NotaFiscal/Servicos.asmx?wsdl</Url>
+          <Url>https://nfsehomologacao.joinville.sc.gov.br/nfse_integracao/Services?wsdl</Url>
         </Item>
         <Item>
           <TipoUrl>ConsultarLoteRps</TipoUrl>
-          <Url>https://nfemwshomologacao.joinville.sc.gov.br/NotaFiscal/Servicos.asmx?wsdl</Url>
+          <Url>https://nfsehomologacao.joinville.sc.gov.br/nfse_integracao/Services?wsdl</Url>
         </Item>
         <Item>
           <TipoUrl>ConsultarSituacao</TipoUrl>
-          <Url>https://nfemwshomologacao.joinville.sc.gov.br/NotaFiscal/Servicos.asmx?wsdl</Url>
+          <Url>https://nfsehomologacao.joinville.sc.gov.br/nfse_integracao/Services?wsdl</Url>
         </Item>
         <Item>
           <TipoUrl>ConsultarSequencialRps</TipoUrl>
-          <Url>https://nfemwshomologacao.joinville.sc.gov.br/NotaFiscal/Servicos.asmx?wsdl</Url>
+          <Url>https://nfsehomologacao.joinville.sc.gov.br/nfse_integracao/Services?wsdl</Url>
         </Item>
         <Item>
           <TipoUrl>SubstituirNFSe</TipoUrl>
-          <Url>https://nfemwshomologacao.joinville.sc.gov.br/NotaFiscal/Servicos.asmx?wsdl</Url>
+          <Url>https://nfsehomologacao.joinville.sc.gov.br/nfse_integracao/Services?wsdl</Url>
         </Item>
         <Item>
           <TipoUrl>Autenticacao</TipoUrl>
@@ -15461,43 +15461,43 @@
       <UrlProducao>
         <Item>
           <TipoUrl>Enviar</TipoUrl>
-          <Url>https://nfemws.joinville.sc.gov.br/NotaFiscal/Servicos.asmx?wsdl</Url>
+          <Url>https://nfem.joinville.sc.gov.br/nfse_integracao/Services?wsdl</Url>
         </Item>
         <Item>
           <TipoUrl>EnviarSincrono</TipoUrl>
-          <Url>https://nfemws.joinville.sc.gov.br/NotaFiscal/Servicos.asmx?wsdl</Url>
+          <Url>https://nfem.joinville.sc.gov.br/nfse_integracao/Services?wsdl</Url>
         </Item>
         <Item>
           <TipoUrl>CancelarNFSe</TipoUrl>
-          <Url>https://nfemws.joinville.sc.gov.br/NotaFiscal/Servicos.asmx?wsdl</Url>
+          <Url>https://nfem.joinville.sc.gov.br/nfse_integracao/Services?wsdl</Url>
         </Item>
         <Item>
           <TipoUrl>CancelarNFSeLote</TipoUrl>
-          <Url>https://nfemws.joinville.sc.gov.br/NotaFiscal/Servicos.asmx?wsdl</Url>
+          <Url>https://nfem.joinville.sc.gov.br/nfse_integracao/Services?wsdl</Url>
         </Item>
         <Item>
           <TipoUrl>ConsultarNFSe</TipoUrl>
-          <Url>https://nfemws.joinville.sc.gov.br/NotaFiscal/Servicos.asmx?wsdl</Url>
+          <Url>https://nfem.joinville.sc.gov.br/nfse_integracao/Services?wsdl</Url>
         </Item>
         <Item>
           <TipoUrl>ConsultarNFSeRps</TipoUrl>
-          <Url>https://nfemws.joinville.sc.gov.br/NotaFiscal/Servicos.asmx?wsdl</Url>
+          <Url>https://nfem.joinville.sc.gov.br/nfse_integracao/Services?wsdl</Url>
         </Item>
         <Item>
           <TipoUrl>ConsultarLoteRps</TipoUrl>
-          <Url>https://nfemws.joinville.sc.gov.br/NotaFiscal/Servicos.asmx?wsdl</Url>
+          <Url>https://nfem.joinville.sc.gov.br/nfse_integracao/Services?wsdl</Url>
         </Item>
         <Item>
           <TipoUrl>ConsultarSituacao</TipoUrl>
-          <Url>https://nfemws.joinville.sc.gov.br/NotaFiscal/Servicos.asmx?wsdl</Url>
+          <Url>https://nfem.joinville.sc.gov.br/nfse_integracao/Services?wsdl</Url>
         </Item>
         <Item>
           <TipoUrl>ConsultarSequencialRps</TipoUrl>
-          <Url>https://nfemws.joinville.sc.gov.br/NotaFiscal/Servicos.asmx?wsdl</Url>
+          <Url>https://nfem.joinville.sc.gov.br/nfse_integracao/Services?wsdl</Url>
         </Item>
         <Item>
           <TipoUrl>SubstituirNFSe</TipoUrl>
-          <Url>https://nfemws.joinville.sc.gov.br/NotaFiscal/Servicos.asmx?wsdl</Url>
+          <Url>https://nfem.joinville.sc.gov.br/nfse_integracao/Services?wsdl</Url>
         </Item>
         <Item>
           <TipoUrl>Autenticacao</TipoUrl>

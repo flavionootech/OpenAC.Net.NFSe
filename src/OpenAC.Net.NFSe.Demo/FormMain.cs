@@ -110,6 +110,8 @@ public partial class FormMain : Form, IOpenLog
             var protocolo = "0";
             if (InputBox.Show("Numero do Protocolo", "Digite o numero do protocolo.", ref protocolo).Equals(DialogResult.Cancel)) return;
 
+            
+            
             var ret = openNFSe.ConsultarLoteRps(numero, protocolo);
             ProcessarRetorno(ret);
         });
@@ -573,7 +575,7 @@ public partial class FormMain : Form, IOpenLog
                 break;
         }
 
-        nfSe.RegimeEspecialTributacao = RegimeEspecialTributacao.MicroEmpresarioEmpresaPP;
+        nfSe.RegimeEspecialTributacao = RegimeEspecialTributacao.SimplesNacional;
         nfSe.IncentivadorCultural = NFSeSimNao.Nao;
 
         var itemListaServico = string.Empty;

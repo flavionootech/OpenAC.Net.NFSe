@@ -29,25 +29,25 @@
 // <summary></summary>
 // ***********************************************************************
 
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Reflection;
 using OpenAC.Net.Core;
 using OpenAC.Net.Core.Extensions;
 using OpenAC.Net.DFe.Core.Common;
 using OpenAC.Net.NFSe.Configuracao;
 using OpenAC.Net.NFSe.Providers.Agili;
 using OpenAC.Net.NFSe.Providers.Directa;
-using OpenAC.Net.NFSe.Providers.ISSJoinville;
 using OpenAC.Net.NFSe.Providers.ISSRecife;
 using OpenAC.Net.NFSe.Providers.ISSSJP;
 using OpenAC.Net.NFSe.Providers.ISSTaiobeiras;
 using OpenAC.Net.NFSe.Providers.Megasoft;
+using OpenAC.Net.NFSe.Providers.Publica;
 using OpenAC.Net.NFSe.Providers.Sigep;
 using OpenAC.Net.NFSe.Providers.SigISS;
 using OpenAC.Net.NFSe.Providers.Tinus;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Reflection;
 
 namespace OpenAC.Net.NFSe.Providers;
 
@@ -71,7 +71,7 @@ public static class ProviderManager
             {NFSeProvider.Citta, new Dictionary<VersaoNFSe, Type> {{VersaoNFSe.ve203, typeof(ProviderCitta)}}},
             {NFSeProvider.Conam, new Dictionary<VersaoNFSe, Type> {{VersaoNFSe.ve203, typeof(ProviderConam)}}},
             {NFSeProvider.Coplan, new Dictionary<VersaoNFSe, Type> {{VersaoNFSe.ve201, typeof(ProviderCoplan)}}},
-            {NFSeProvider.ISSJoinville, new Dictionary<VersaoNFSe, Type> {{VersaoNFSe.ve204, typeof(ProviderISSJoinville)}}},
+            {NFSeProvider.Publica, new Dictionary<VersaoNFSe, Type> {{VersaoNFSe.ve204, typeof(ProviderPublica)}}},
             {NFSeProvider.DBSeller, new Dictionary<VersaoNFSe, Type> {{VersaoNFSe.ve100, typeof(ProviderDBSeller)}}},
             {NFSeProvider.DSF, new Dictionary<VersaoNFSe, Type> {{VersaoNFSe.ve100, typeof(ProviderDSF100)}}},
             {NFSeProvider.Equiplano, new Dictionary<VersaoNFSe, Type> {{VersaoNFSe.ve100, typeof(ProviderEquiplano)}}},
