@@ -100,6 +100,10 @@ public abstract class ProviderABRASF200 : ProviderBase
         else
         {
             rootRps = xml.ElementAnyNs("Rps").ElementAnyNs("InfDeclaracaoPrestacaoServico");
+            if (rootRps is null)
+            {
+                rootRps = xml.ElementAnyNs("Rps").ElementAnyNs("InfRps");
+            }
         }
 
         Guard.Against<XmlException>(rootNFSe == null && rootRps == null, "Xml de RPS ou NFSe invalido.");

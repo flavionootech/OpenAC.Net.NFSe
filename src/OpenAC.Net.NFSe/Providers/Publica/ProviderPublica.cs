@@ -175,14 +175,12 @@ namespace OpenAC.Net.NFSe.Providers.Publica
 
             string regimeEspecialTributacao;
             string optanteSimplesNacional;
-            if (nota.RegimeEspecialTributacao == RegimeEspecialTributacao.SimplesNacional)
+            if (nota.OptanteSimplesNacional == NFSeSimNao.Sim)
             {
-                regimeEspecialTributacao = "6";
                 optanteSimplesNacional = "1";
             }
             else
             {
-                regimeEspecialTributacao = ((int)nota.RegimeEspecialTributacao).ToString();
                 optanteSimplesNacional = "2";
             }
 
@@ -192,7 +190,7 @@ namespace OpenAC.Net.NFSe.Providers.Publica
                 case 1:
                     {
                         naturezaOperacao = NaturezaOperacao.Publica.TributacaoNoMunicipio;
-                        if (optanteSimplesNacional == "1")
+                        if (nota.OptanteSimplesNacional == NFSeSimNao.Sim)
                         {
                             naturezaOperacao = NaturezaOperacao.Publica.TributacaoNoMunicipioSimplesNacional;
                         }
@@ -202,7 +200,7 @@ namespace OpenAC.Net.NFSe.Providers.Publica
                 case 2:
                     {
                         naturezaOperacao = NaturezaOperacao.Publica.TributacaoForaMunicipio;
-                        if (optanteSimplesNacional == "1")
+                        if (nota.OptanteSimplesNacional == NFSeSimNao.Sim)
                         {
                             naturezaOperacao = NaturezaOperacao.Publica.TributacaoForaMunicipioSimplesNacional;
                         }
@@ -275,8 +273,7 @@ namespace OpenAC.Net.NFSe.Providers.Publica
             var signatureNode = xmlDoc.Root.ElementAnyNs("Signature");
             if (signatureNode != null)
             {
-                var protocoloElement = new XElement("Protocolo", retornoWebservice.Protocolo);
-                signatureNode.AddAfterSelf(protocoloElement);
+                signatureNode.AddAfterSelf(new XElement("Protocolo", retornoWebservice.Protocolo));
             }
 
             // Atualiza o XML final no retorno
@@ -353,6 +350,7 @@ namespace OpenAC.Net.NFSe.Providers.Publica
             retornoWebservice.Data = protocoloElement?.ElementAnyNs("DataRecebimento")?.GetValue<DateTime>() ?? DateTime.MinValue;
             retornoWebservice.Protocolo = protocoloElement?.ElementAnyNs("Protocolo")?.GetValue<string>() ?? string.Empty;
             retornoWebservice.Sucesso = retornoWebservice.Lote > 0;
+
 
             if (!retornoWebservice.Sucesso) return;
 
@@ -454,7 +452,7 @@ namespace OpenAC.Net.NFSe.Providers.Publica
                 var numeroNFSe = nfse.ElementAnyNs("Numero")?.GetValue<string>() ?? string.Empty;
                 var chaveNFSe = nfse.ElementAnyNs("CodigoVerificacao")?.GetValue<string>() ?? string.Empty;
                 var dataNFSe = nfse.ElementAnyNs("DataEmissao")?.GetValue<DateTime>() ?? DateTime.Now;
-                var numeroRps = nfse.ElementAnyNs("NumeroRps")?.GetValue<string>() ?? string.Empty;
+                var numeroRps = nfse.ElementAnyNs("IdentificacaoRps")?.ElementAnyNs("Numero")?.GetValue<string>() ?? string.Empty;
 
                 GravarNFSeEmDisco(compNfse.AsString(true), $"NFSe-{numeroNFSe}-{chaveNFSe}-.xml", dataNFSe);
 
