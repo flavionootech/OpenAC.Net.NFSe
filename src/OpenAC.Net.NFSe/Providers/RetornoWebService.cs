@@ -150,10 +150,12 @@ public sealed class RetornoCancelar : RetornoWebservice
 
     public decimal ValorNFSe { get; internal set; }
 
-        public string CodigoCancelamento { get; internal set; }
-        public string CodigoVerificacao { get; internal set; }
+    public string CodigoCancelamento { get; internal set; }
+    public string CodigoVerificacao { get; internal set; }
 
     public string Motivo { get; internal set; }
+
+    public string Protocolo { get; internal set; }
 }
 
 public sealed class RetornoCancelarNFSeLote : RetornoWebservice

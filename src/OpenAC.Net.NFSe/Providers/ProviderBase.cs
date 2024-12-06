@@ -727,17 +727,18 @@ public abstract class ProviderBase : IOpenLog, IDisposable
         /// <param name="motivo"></param>
         /// <param name="notas"></param>
         /// <returns></returns>
-        public RetornoCancelar CancelarNFSe(string codigoCancelamento, string numeroNFSe, string serieNFSe, decimal valorNFSe, string motivo, string codigoVerificacao, NotaServicoCollection notas)
+        public RetornoCancelar CancelarNFSe(string codigoCancelamento, string numeroNFSe, string serieNFSe, decimal valorNFSe, string motivo, string codigoVerificacao, string protocolo, NotaServicoCollection notas)
         {
-            var retornoWebservice = new RetornoCancelar()
-            {
-                CodigoCancelamento = codigoCancelamento,
-                NumeroNFSe = numeroNFSe,
-                SerieNFSe = serieNFSe,
-                ValorNFSe = valorNFSe,
-                Motivo = motivo,
-                CodigoVerificacao = codigoVerificacao
-            };
+        var retornoWebservice = new RetornoCancelar()
+        {
+            CodigoCancelamento = codigoCancelamento,
+            NumeroNFSe = numeroNFSe,
+            SerieNFSe = serieNFSe,
+            ValorNFSe = valorNFSe,
+            Motivo = motivo,
+            CodigoVerificacao = codigoVerificacao,
+            Protocolo = protocolo
+        };
 
         try
         {

@@ -149,5 +149,7 @@ public enum NFSeProvider : sbyte
 
     ISSTaiobeiras = 53,
 
-    Tinus = 54
+    Tinus = 54, 
+
+    Centi = 55
 }

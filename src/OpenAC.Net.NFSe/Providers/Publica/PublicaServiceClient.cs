@@ -1,7 +1,6 @@
 ﻿using OpenAC.Net.Core.Extensions;
 using OpenAC.Net.DFe.Core;
 using System;
-using System.Reflection.Emit;
 using System.Text;
 using System.Xml.Linq;
 

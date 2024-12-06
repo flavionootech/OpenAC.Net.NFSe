@@ -171,7 +171,10 @@ public partial class FormMain : Form, IOpenLog
             var codigoVerificacao = "";
             if (InputBox.Show("Código Verificação", "Digite o Código Verificação.", ref codigoVerificacao).Equals(DialogResult.Cancel)) return;
 
-            var ret = openNFSe.CancelarNFSe(codigo, numeroNFSe, serieNFSe, 0, motivo, codigoVerificacao);
+            var protocolo = "";
+            if (InputBox.Show("Protocolo", "Digite o Protocolo.", ref protocolo).Equals(DialogResult.Cancel)) return;
+
+            var ret = openNFSe.CancelarNFSe(codigo, numeroNFSe, serieNFSe, 0, motivo, codigoVerificacao, protocolo);
             ProcessarRetorno(ret);
         });
     }
@@ -577,7 +580,7 @@ public partial class FormMain : Form, IOpenLog
 
         nfSe.RegimeEspecialTributacao = RegimeEspecialTributacao.SimplesNacional;
         nfSe.IncentivadorCultural = NFSeSimNao.Nao;
-
+        
         var itemListaServico = string.Empty;
         switch (municipio.Provedor)
         {
@@ -601,6 +604,11 @@ public partial class FormMain : Form, IOpenLog
             case NFSeProvider.Fiorilli:
                 {
                     itemListaServico = "14.02";
+                    break;
+                }
+            case NFSeProvider.Centi:
+                {
+                    itemListaServico = "1401";
                     break;
                 }
             default:
@@ -655,7 +663,7 @@ public partial class FormMain : Form, IOpenLog
         nfSe.Servico.Discriminacao = "MANUTENCAO TÉCNICA / VOCÊ PAGOU APROXIMADAMENTE R$ 41,15 DE TRIBUTOS FEDERAIS, R$ 8,26 DE TRIBUTOS MUNICIPAIS, R$ 256,57 PELOS PRODUTOS/SERVICOS, FONTE: IBPT.";
         nfSe.Servico.CodigoMunicipio = municipio.Provedor == NFSeProvider.ISSDSF ? municipio.CodigoSiafi : municipio.Codigo;
         nfSe.Servico.Municipio = municipio.Nome;
-        if (municipio.Provedor.IsIn(NFSeProvider.SiapNet, NFSeProvider.Agili, NFSeProvider.SmarAPD))
+        if (municipio.Provedor.IsIn(NFSeProvider.SiapNet, NFSeProvider.Agili, NFSeProvider.SmarAPD, NFSeProvider.Centi))
         {
             nfSe.Servico.ResponsavelRetencao = ResponsavelRetencao.Prestador;
             nfSe.Servico.MunicipioIncidencia = nfSe.Servico.CodigoMunicipio;
